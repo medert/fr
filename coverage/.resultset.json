@@ -499,6 +499,22 @@
         null,
         null
       ],
+      "/Users/Meder/challenges/breakable_toy/fastrides/spec/factories/trips.rb": [
+        1,
+        1,
+        3,
+        3,
+        3,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/Meder/challenges/breakable_toy/fastrides/spec/factories/users.rb": [
         1,
         1,
@@ -531,6 +547,7 @@
         null
       ],
       "/Users/Meder/challenges/breakable_toy/fastrides/app/models/user.rb": [
+        1,
         1,
         null,
         null,
@@ -572,7 +589,7 @@
         null,
         null,
         1,
-        12,
+        13,
         null,
         null,
         1,
@@ -580,11 +597,11 @@
         null,
         null,
         1,
-        12,
+        13,
         null,
         null,
         1,
-        12,
+        13,
         null,
         null,
         null
@@ -798,6 +815,30 @@
         null,
         null
       ],
+      "/Users/Meder/challenges/breakable_toy/fastrides/spec/features/trips/index_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null
+      ],
       "/Users/Meder/challenges/breakable_toy/fastrides/spec/models/user_spec.rb": [
         1,
         null,
@@ -863,9 +904,19 @@
         1,
         null,
         1,
-        13,
+        14,
         null,
         null,
+        null,
+        null
+      ],
+      "/Users/Meder/challenges/breakable_toy/fastrides/app/models/trip.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
         null
       ],
       "/Users/Meder/challenges/breakable_toy/fastrides/app/controllers/users_controller.rb": [
@@ -896,6 +947,6 @@
         null
       ]
     },
-    "timestamp": 1453088597
+    "timestamp": 1453093806
   }
 }
