@@ -15,6 +15,7 @@ gem 'kaminari'
 gem "carrierwave"
 gem "fog"
 gem 'dotenv-rails'
+gem 'simple_form'
 
 
 group :development, :test do
@@ -25,11 +26,11 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
-  gem 'shoulda'
   gem 'shoulda-matchers', '~> 3.0.1'
   gem "dotenv-rails"
   gem "mailcatcher"
   gem 'teaspoon-jasmine'
+  gem 'quiet_assets'
 end
 
 group :development do
