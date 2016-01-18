@@ -11,12 +11,35 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << [
       :first_name,
       :last_name,
-      :admin,
+      :birthdate,
+      :gender,
+      :address,
+      :town,
+      :state,
+      :zip,
+      :d_lisence,
+      :phone,
+      :rating,
+      :role,
+      :email,
+      :profile_photo
     ]
 
     devise_parameter_sanitizer.for(:account_update) << [
       :first_name,
       :last_name,
+      :birthdate,
+      :gender,
+      :address,
+      :town,
+      :state,
+      :zip,
+      :d_lisence,
+      :phone,
+      :rating,
+      :role,
+      :email,
+      :profile_photo
     ]
   end
 

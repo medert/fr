@@ -2,8 +2,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
-      t.string  :first_name, :string, null: false
-      t.string  :last_name, :string, null: false
+      t.string  :first_name, null: false
+      t.string  :last_name, null: false
       t.date    :birthdate
       t.string  :gender
       t.string  :address
@@ -11,11 +11,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :state
       t.string  :zip
       t.string  :d_lisence
-      t.string :phone
+      t.string  :phone
       t.integer :rating
       t.integer :d_trip_count
       t.integer :r_trip_count
       t.string  :role, default: 'rider'
+      t.string  :profile_photo
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
 

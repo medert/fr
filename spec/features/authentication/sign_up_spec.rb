@@ -16,7 +16,7 @@ feature 'sign up', %{
     # * If I specify valid information, I register my account and am authenticated
 
   scenario 'specifying valid and required information' do
-    visit root_path
+    visit new_user_registration_path
     click_link 'Sign Up'
     fill_in('First Name', with: 'John')
     fill_in('Last Name', with: 'Doe')
@@ -31,16 +31,15 @@ feature 'sign up', %{
     fill_in('Email', with: 'johndoe@123.com')
     fill_in('enter password', with: 'Seekrit123')
     fill_in('confirm password', with: 'Seekrit123')
-    binding.pry
+    attach_file "Profile Photo", "#{Rails.root}/spec/support/images/photo.png"
     click_button('Sign Up')
-
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
     expect(page).to have_content("Sign Out")
   end
 
   scenario 'required information is not supplied' do
-    visit root_path
+    visit new_user_registration_path
     click_link 'Sign Up'
     click_button 'Sign Up'
 
@@ -49,11 +48,11 @@ feature 'sign up', %{
   end
 
   scenario 'password confirmation does not match confirmation' do
-    visit root_path
+    visit new_user_registration_path
     click_link 'Sign Up'
 
-    fill_in 'Enter Password', with: '123Seekrit'
-    fill_in 'Confirm Password', with: '756Seekrit'
+    fill_in 'enter password', with: '123Seekrit'
+    fill_in 'confirm password', with: '756Seekrit'
 
     click_button 'Sign Up'
 
