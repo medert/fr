@@ -68,7 +68,12 @@ class TripsController < ApplicationController
       :user_id,
       :origin,
       :destination,
-      :meet_point
+      :meet_point,
+      :rate,
+      :car_model,
+      :car_make,
+      :car_plate,
+      :avail_cap
     )
   end
 end

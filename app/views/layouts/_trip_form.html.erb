@@ -1,0 +1,37 @@
+<%= form_for @trip do |f| %>
+  <div>
+    <%=f.label :origin, "Origin"%>
+    <%= f.text_field :origin %>
+  </div>
+  <div>
+    <%=f.label :destination, "Destination"%>
+    <%= f.text_field :destination %>
+  </div>
+  <div>
+    <%=f.label :meet_point, "Meet Point"%>
+    <%= f.text_field :meet_point %>
+  </div>
+  <div>
+    <%=f.label :rate, "Rate"%>
+    <%= f.text_field :rate %>
+  </div>
+  <div>
+    <%=f.label :car_make, "Make"%>
+    <%= f.select :car_make, options_for_select(['Subaru', 'Toyota']) %>
+  </div>
+  <div>
+    <%=f.label :car_model, "Model"%>
+    <%= f.select :car_model, options_for_select(['Forester', 'Outback']) %>
+  </div>
+  <div>
+    <%=f.label :car_plate, "Lisence Plates"%>
+    <%= f.text_field :car_plate %>
+  </div>
+  <div>
+    <%=f.label :avail_cap, "Avaliable Seats"%>
+    <%= f.select :avail_cap, options_for_select([1, 2, 3, 4]) %>
+  </div>
+  <div>
+    <%= f.submit%>
+  </div>
+  <% end %>

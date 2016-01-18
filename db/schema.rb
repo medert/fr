@@ -17,10 +17,17 @@ ActiveRecord::Schema.define(version: 20160118044653) do
   enable_extension "plpgsql"
 
   create_table "trips", force: :cascade do |t|
-    t.integer "user_id"
-    t.string  "origin",      null: false
-    t.string  "destination", null: false
-    t.string  "meet_point",  null: false
+    t.integer  "user_id"
+    t.string   "origin",                  null: false
+    t.string   "destination",             null: false
+    t.string   "meet_point",              null: false
+    t.integer  "rate",        default: 0
+    t.string   "car_make"
+    t.string   "car_model"
+    t.string   "car_plate"
+    t.integer  "avail_cap",   default: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

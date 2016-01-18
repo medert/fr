@@ -4,7 +4,8 @@
       <div class="park-info small-4 column" data-equalizer-watch>
         <p>
           <%= link_to "#{trip.origin}-#{trip.destination}", trip_path(trip) %><br>
-          <%= trip.meet_point %>
+          <%= link_to "#{trip.user_id}", "#" %><br>
+          <%= trip.rate %>
         </p>
       </div>
     </li>
