@@ -595,7 +595,7 @@
         null,
         null,
         1,
-        20,
+        37,
         null,
         null,
         1,
@@ -603,11 +603,11 @@
         null,
         null,
         1,
-        20,
+        37,
         null,
         null,
         1,
-        20,
+        37,
         null,
         null,
         null
@@ -993,6 +993,53 @@
         null,
         null
       ],
+      "/Users/Meder/challenges/breakable_toy/fastrides/spec/models/trip_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null
+      ],
+      "/Users/Meder/challenges/breakable_toy/fastrides/app/models/trip.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/Meder/challenges/breakable_toy/fastrides/spec/models/user_spec.rb": [
         1,
         null,
@@ -1134,15 +1181,6 @@
         null,
         null
       ],
-      "/Users/Meder/challenges/breakable_toy/fastrides/app/models/trip.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null
-      ],
       "/Users/Meder/challenges/breakable_toy/fastrides/app/controllers/users_controller.rb": [
         1,
         1,
@@ -1171,6 +1209,6 @@
         null
       ]
     },
-    "timestamp": 1453161588
+    "timestamp": 1453162548
   }
 }
