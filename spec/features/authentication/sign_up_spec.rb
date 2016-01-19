@@ -7,15 +7,15 @@ feature 'sign up', %{
   I want to create an account
   So that I catch rides or give rides to local commuters
   } do
-    # ACCEPTANCE CRITERIA
-    # * I must provide my first and last names
-    # * I must provide birthdate, gender, address, city, zipcode, phone
-    # * I can optionally provide profile photo and driver's lisence
-    # * I must provide driver's lisence if i want to create trips for giving rides
-    # * I must specify a valid email address
-    # * I must specify a password, and confirm that password
-    # * If I do not perform the above, I get an error message
-    # * If I specify valid information, I register my account and am authenticated
+  # ACCEPTANCE CRITERIA
+  # * I must provide my first and last names
+  # * I must provide birthdate, gender, address, city, zipcode, phone
+  # * I can optionally provide profile photo and driver's lisence
+  # * I must provide driver's lisence if i want to create trips for giving rides
+  # * I must specify a valid email address
+  # * I must specify a password, and confirm that password
+  # * If I do not perform the above, I get an error message
+  # * If I specify valid information, I register my account and am authenticated
 
   scenario 'specifying valid and required information' do
     visit root_path

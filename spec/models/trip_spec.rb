@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Trip do
 
-  it { should belong_to :user}
+  it { should belong_to :user }
 
   it { should have_valid(:origin).when("Boston") }
   it { should_not have_valid(:origin).when("", nil) }

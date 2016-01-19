@@ -5,11 +5,10 @@ feature "users can view all avaliable trips", %{
   I want to view all avaliable trips
   So that I catch a trip i am interested
   } do
-    # ACCEPTANCE CRITERIA
-    # * I can visit trips index page and see all avaliable trips
-    # * I can see name of the page "TRIPS"
-    # * I can see driver's first name and last_name
-    # *
+  # ACCEPTANCE CRITERIA
+  # * I can visit trips index page and see all avaliable trips
+  # * I can see name of the page "TRIPS"
+  # * I can see driver's first name and last_name
 
   scenario "unauthenticated user visits trips index page and views all trips" do
     trips = create_list(:trip, 3)
