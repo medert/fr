@@ -4,17 +4,16 @@
   <h3 class="park-show-location"><%= @trip.origin %></h3>
   <h3 class="park-show-location"><%= @trip.destination %></h3>
 
-
-
   <% if user_signed_in? %>
     <div class="button tiny update-butt">
-      <%= link_to 'Update Trip Info', edit_trip_path(@trip) %>
+      <%= link_to 'Update Trip', edit_trip_path(@trip) %>
     </div>
   <% end %>
 </div>
 
 <div class="text-center">
-    <% if current_user.present? && current_user.admin? %>
-    <%= link_to 'Delete!', trip_path(@trip), method: "delete", class: "button tiny update-butt" %>
+    <% if current_user.present? && current_user.role == "admin" %>
+    <%= link_to 'Delete', trip_path(@trip), method: "delete", class: "button tiny update-butt" %>
   <% end %>
+
 </div>
