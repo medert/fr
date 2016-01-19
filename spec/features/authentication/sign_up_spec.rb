@@ -7,16 +7,18 @@ feature 'sign up', %{
   I want to create an account
   So that I catch rides or give rides to local commuters
   } do
-    # ACCEPTANCE CRITERIA
-    # * I must my first and last names
-    # * I must age, gender, address, city, zipcode, phone
-    # * I must specify a valid email address
-    # * I must specify a password, and confirm that password
-    # * If I do not perform the above, I get an error message
-    # * If I specify valid information, I register my account and am authenticated
+  # ACCEPTANCE CRITERIA
+  # * I must provide my first and last names
+  # * I must provide birthdate, gender, address, city, zipcode, phone
+  # * I can optionally provide profile photo and driver's lisence
+  # * I must provide driver's lisence if i want to create trips for giving rides
+  # * I must specify a valid email address
+  # * I must specify a password, and confirm that password
+  # * If I do not perform the above, I get an error message
+  # * If I specify valid information, I register my account and am authenticated
 
   scenario 'specifying valid and required information' do
-    visit new_user_registration_path
+    visit root_path
     click_link 'Sign Up'
     fill_in('First Name', with: 'John')
     fill_in('Last Name', with: 'Doe')
@@ -39,7 +41,7 @@ feature 'sign up', %{
   end
 
   scenario 'required information is not supplied' do
-    visit new_user_registration_path
+    visit root_path
     click_link 'Sign Up'
     click_button 'Sign Up'
 
@@ -48,7 +50,7 @@ feature 'sign up', %{
   end
 
   scenario 'password confirmation does not match confirmation' do
-    visit new_user_registration_path
+    visit root_path
     click_link 'Sign Up'
 
     fill_in 'enter password', with: '123Seekrit'

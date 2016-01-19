@@ -15,8 +15,6 @@ gem 'kaminari'
 gem "carrierwave"
 gem "fog"
 gem 'dotenv-rails'
-gem 'simple_form'
-
 
 group :development, :test do
   gem 'byebug'

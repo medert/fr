@@ -1,1 +1,21 @@
-<h1>Trips</h1>
+<% if params[:search].present? || params[:search] == "" %>
+  <div class="text-center">
+    <h1>Search Results!</h1>
+  </div>
+<% else %>
+  <div class="text-center">
+    <h1>TRIPS</h1>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+<div class="row text-center">
+  <div class="small-centered small-2 columns button small">
+    <%= link_to "New Trip", new_trip_path, class: "new" %>
+  </div>
+</div>
+<% end %>
+
+<ul class="small-10 small-centered column">
+  <%= render @trips %>
+</ul>
