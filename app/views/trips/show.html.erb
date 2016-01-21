@@ -3,17 +3,37 @@
   <h1><%= "#{@trip.origin}-#{@trip.destination}" %></h1>
   <h3 class="park-show-location"><%= @trip.origin %></h3>
   <h3 class="park-show-location"><%= @trip.destination %></h3>
+  <h3 class="park-show-location">Rate:<%= @trip.rate %></h3>
+  <h3 class="park-show-location">
+    Driver: <%= link_to "#{@trip.driver.first_name} #{@trip.driver.last_name}", user_path(@trip.driver) %>
+  </h3>
+  <h3 class="park-show-location">Driver Rating:<%= @trip.driver.rating %></h3>
 
   <% if user_signed_in? %>
+    <h3 class="park-show-location"><%= @trip.meet_point %></h3>
+    <h3 class="park-show-location"><%= @trip.car_make %></h3>
+    <h3 class="park-show-location"><%= @trip.car_model %></h3>
+    <h3 class="park-show-location"><%= @trip.car_plate %></h3>
+
+  <% end %>
+  <% if user_signed_in? && ( current_user == @trip.driver || current_user.role == "admin" ) %>
     <div class="button tiny update-butt">
-      <%= link_to 'Update Trip', edit_trip_path(@trip) %>
+      <%= button_to 'Update Trip', edit_trip_path(@trip) %>
+      <%= button_to 'Delete', trip_path(@trip), method: "delete"%>
     </div>
   <% end %>
 </div>
 
-<div class="text-center">
-    <% if current_user.present? && current_user.role == "admin" %>
-    <%= link_to 'Delete', trip_path(@trip), method: "delete", class: "button tiny update-butt" %>
+<div>
+  <% if user_signed_in? && !@reviews.nil? %>
+    <h1>Driver Reviews</h1>
+    <%= render @reviews %>
   <% end %>
+</div>
 
+<div>
+  <h2>Review the Driver</h2>
+  <% if user_signed_in? && !current_user == @trip.driver %>
+
+  <% end %>
 </div>

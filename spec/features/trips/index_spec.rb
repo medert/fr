@@ -10,19 +10,31 @@ feature "users can view all avaliable trips", %{
   # * I can see name of the page "TRIPS"
   # * I can see driver's first name and last_name
 
+  let!(:user) { create(:user) }
+  let!(:rider) { create(:rider) }
+  let!(:driver) { create(:driver) }
+  let!(:trip) { create(:trip) }
+
   scenario "unauthenticated user visits trips index page and views all trips" do
-    trips = create_list(:trip, 3)
+
     visit root_path
 
     expect(page).to have_content "TRIPS"
 
-    trips.each do |trip|
-      expect(page).to have_content(trip.origin)
-      expect(page).to have_content(trip.destination)
-      expect(page).to have_content(trip.rate)
-      expect(page).to_not have_content(trip.meet_point)
-      expect(page).not_to have_content(trip.car_make)
-      expect(page).not_to have_content(trip.car_plate)
-    end
+    expect(page).to have_content(trip.origin)
+    expect(page).to have_content(trip.destination)
+    expect(page).to have_content(trip.rate)
+  end
+
+  scenario "rider visits trips index page and views all trips" do
+
+    sign_in_as(rider)
+    visit root_path
+
+    expect(page).to have_content "TRIPS"
+
+    expect(page).to have_content(trip.origin)
+    expect(page).to have_content(trip.destination)
+    expect(page).to have_content(trip.rate)
   end
 end

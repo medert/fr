@@ -6,22 +6,54 @@ feature "authorized user can delete trip information", %{
   So that nobody can give rides on my behalf
   } do
 
-  let(:trip) { create :trip }
-  let(:admin) { create :user, role: "admin" }
-  let(:user) { create :user, role: "member" }
+  let!(:admin){create(:user, role: "admin")}
+  let!(:driver){create(:driver)}
+  let!(:rider){create(:rider)}
+  let!(:trip){create(:trip, driver: driver)}
 
-  scenario "admin signs in, navigates to edit's page and deletes trip" do
-    sign_in_as(admin)
-    visit trip_path(trip)
-    click_link("Delete")
+    scenario "admin navigates to show's page and deletes any trip" do
 
-    expect(page).to have_content("You have deleted trip successfully!")
-  end
+      sign_in_as(admin)
+      visit root_path
+      visit trip_path(trip)
 
-  scenario "member signs in, should be unable to delete trip" do
-    sign_in_as(user)
-    visit trip_path(trip)
+      expect(page).to have_content(trip.origin)
+      expect(page).to have_link(trip.driver.first_name)
+      expect(page).to have_button("Delete")
 
-    expect(page).to_not have_content("Delete")
+      click_button("Delete")
+
+      expect(page).to have_content("You have deleted trip successfully!")
+    end
+
+    scenario "driver navigates to show's page and deletes the trip he created" do
+
+      sign_in_as(driver)
+      visit trip_path(trip)
+
+      expect(page).to have_content(trip.origin)
+      expect(page).to have_link(trip.driver.first_name)
+      expect(page).to have_button("Delete")
+
+      click_button("Delete")
+
+      expect(page).to have_content("You have deleted trip successfully!")
+    end
+
+    scenario "driver is unable to delete the trip he did not created" do
+      trip_2 = create(:trip, driver_id: 10)
+
+      sign_in_as(driver)
+      visit trip_path(trip_2)
+
+      expect(page).to_not have_button("Delete")
+    end
+
+    scenario "rider signs in, should be unable to delete trip" do
+
+      sign_in_as(rider)
+      visit trip_path(trip)
+
+    expect(page).to_not have_button("Delete")
   end
 end

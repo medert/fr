@@ -3,10 +3,8 @@
     <li>
       <div class="park-info small-4 column" data-equalizer-watch>
         <p>
-          <%= link_to "#{trip.origin}-#{trip.destination}", trip_path(trip) %><br>
-          <%= link_to "Driver: #{trip.driver.first_name}", user_path(trip.driver) %><br>
           <li>
-            Trip rate: $<%= trip.rate %>
+            <%= @review.review_body %>
           </li>
         </p>
       </div>

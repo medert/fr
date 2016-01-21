@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :user, aliases: [:driver, :rider] do
     sequence(:first_name) { |n| "John#{n}" }
     sequence(:last_name) { |n| "Doe#{n}" }
     birthdate {[20.years.ago, 40.years.ago].sample}

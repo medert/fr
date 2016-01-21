@@ -10,22 +10,29 @@ feature "authenticated users can edit trip information", %{
   So that I can correct errors or provide new information
   } do
 
-  let!(:user) { create(:user) }
+  let!(:driver) { create(:driver) }
+  let!(:trip) { create(:trip, driver_id: driver) }
 
-  scenario "visitor signs in and views trips and navigates to edit's page" do
-    trip = create_list(:trip, 3)
-    sign_in_as(user)
-    visit trip_path(trip.first.id)
-    click_link("Update Trip")
+  scenario "driver views trips, navigates to edit's page and updates trip info" do
+    sign_in_as(driver)
+    visit root_path
+    pry
+    visit trip_path(trip)
 
-    expect(page).to have_field('Origin', with: "#{trip.first.origin}")
-    expect(page).to have_field('Destination', with: "#{trip.first.destination}")
+    click_button("Update Trip")
+
+    expect(page).to have_field('Origin', with: "#{trip.origin}")
+    expect(page).to have_field('Destination', with: "#{trip.destination}")
+
+    click_button("Update Trip")
+
+    expect(page).to have_content("You have successfully updated your quesiton!")
+
   end
 
-  scenario "visitor edit's trip information and submits changes" do
-    trip = create_list(:trip, 3)
+  scenario " driver edit's trip information and submits changes" do
 
-    visit edit_trip_path(trip.first)
+    visit edit_trip_path(trip)
 
     fill_in("Origin", with: "Braintree")
     fill_in("Destination", with: "Boston")
