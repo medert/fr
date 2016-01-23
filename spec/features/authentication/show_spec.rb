@@ -9,10 +9,11 @@ feature 'view driver profile', %{
   # * I can visit driver's profile
   # * I can read all the previous reviews in descending order
 
-  let!(:driver){create(:driver)}
-  let!(:rider){create(:rider)}
-  let!(:trip){create(:trip, driver_id: driver.id)}
-  let!(:review){create(:review, trip_id: trip.id, rider_id: rider.id, driver_id: driver.id)}
+  let!(:driver) { create(:driver) }
+  let!(:rider) { create(:rider) }
+  let!(:trip) { create(:trip, driver_id: driver.id) }
+  let!(:review) { create(:review, trip_id: trip.id,
+                  rider_id: rider.id, driver_id: driver.id) }
 
   scenario "driver views driver's reviews" do
 
@@ -24,10 +25,6 @@ feature 'view driver profile', %{
   end
 
   scenario "driver views driver's reviews" do
-    driver = create(:driver)
-    rider = create(:rider)
-    trip = create(:trip, driver_id: driver.id)
-    review = create(:review, trip_id: trip.id, rider_id: rider.id, driver_id: driver.id)
 
     sign_in_as(driver)
     visit root_path
