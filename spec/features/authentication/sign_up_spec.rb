@@ -17,7 +17,7 @@ feature 'sign up', %{
   # * If I do not perform the above, I get an error message
   # * If I specify valid information, I register my account and am authenticated
 
-  scenario 'specifying valid and required information' do
+  scenario 'unathenticated user fills in sing up form and create new account' do
     visit root_path
     click_link 'Sign Up'
     fill_in('First Name', with: 'John')

@@ -1,20 +1,22 @@
 class TripsController < ApplicationController
   before_action :authorize_user, only: [:destroy]
-  before_action :trip, only: [:show, :edit, :update, :destroy]
+  # before_action :trip, only: [:show, :edit, :update, :destroy]
+  # before_action :review, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:search] == ""
-      trips = Trip.none
-    elsif params[:search]
-      trips = Trip.where("title ILIKE ?", "%#{params[:search]}%")
-    else
-      trips = Trip.all
-    end
     @trips = Trip.all
   end
 
   def show
-    @park = Trip.find(params[:id])
+    @review = Review.new
+    trip_reviews = Review.where(trip_id: trip)
+    @reviews = trip_reviews.order(created_at: :desc).page params[:page]
+    @rating = @trip.reviews.average(:rating)
+    if @rating.nil?
+      @rating = "N/A"
+    else
+      @rating = @rating.round(1)
+    end
   end
 
   def new
@@ -23,10 +25,9 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.user_id = current_user.id
-
+    @trip.driver_id = current_user.id
     if @trip.save
-      flash[:success] = "Trip successfully created!"
+      flash[:notice] = "Trip successfully created!"
       redirect_to root_path
     else
       flash[:notice] = @trip.errors.full_messages
@@ -35,12 +36,13 @@ class TripsController < ApplicationController
   end
 
   def edit
+    trip
   end
 
   def update
-    if @trip.update(trip_params)
+    if trip.update(trip_params)
       flash[:notice] = "You have successfully updated your question!"
-      redirect_to @trip
+      redirect_to trip_path
     else
       flash.now[:notice] = "Invalid input."
       render 'edit'
@@ -48,7 +50,7 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    if @trip.destroy
+    if trip.destroy
       flash[:notice] = "You have deleted trip successfully!"
       redirect_to root_path
     else
@@ -65,7 +67,7 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(
-      :user_id,
+      :driver_id,
       :origin,
       :destination,
       :meet_point,

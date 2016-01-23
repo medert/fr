@@ -7,6 +7,17 @@
     <li class="no-bullet"><%= @user.email %></li>
   </ul>
 
+  <% if user_signed_in? && (current_user.role == "admin" || current_user.id == @user.id) %>
   <div> <%= button_to 'Update', edit_user_registration_path, method: :get, class: "button tiny" %></div>
+  <div> <%= button_to 'Delete', root_path, method: :delete, class: "button tiny" %></div>
+  <% end %>
+</div>
 
+<div>
+  <h1>Driver Reviews</h1>
+    <% if user_signed_in? && !@reviews.nil? %>
+      <%= render 'reviews/review' %>
+    <% else %>
+      <%= "No reviews have been posted yet!" %>
+    <% end %>
 </div>
