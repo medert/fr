@@ -6,10 +6,10 @@ feature "authenticated users can view trips", %{
   So that I can pick trip to see additional information
   } do
 
-    let!(:user) { create(:user) }
-    let!(:rider) { create(:rider) }
-    let!(:driver) { create(:driver) }
-    let!(:trip) { create(:trip, driver: driver) }
+  let!(:user) { create(:user) }
+  let!(:rider) { create(:rider) }
+  let!(:driver) { create(:driver) }
+  let!(:trip) { create(:trip, driver: driver) }
 
   scenario "visitor signs in and views trips on index page" do
     visit root_path
@@ -20,13 +20,11 @@ feature "authenticated users can view trips", %{
     expect(page).to have_content(trip.driver.first_name)
     expect(page).to have_content(trip.driver.last_name)
     expect(page).to have_content(trip.driver.rating)
-
     expect(page).not_to have_content(trip.meet_point)
     expect(page).not_to have_content(trip.car_make)
     expect(page).not_to have_content(trip.car_model)
     expect(page).not_to have_content(trip.car_plate)
   end
-
 
   scenario "rider signs in and views trips on index page" do
     visit root_path

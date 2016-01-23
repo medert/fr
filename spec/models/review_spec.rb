@@ -8,5 +8,5 @@ describe Review do
   it { should have_valid(:rating).when(1) }
   it { should_not have_valid(:rating).when("") }
 
-  it { should have_valid(:review_body).when("The driver kept great company", "", nil) }
+  it { should have_valid(:review_body).when("The driver was great", "", nil) }
 end

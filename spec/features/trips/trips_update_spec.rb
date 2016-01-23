@@ -24,8 +24,8 @@ feature "authenticated users can edit trip information", %{
 
     click_button("Edit")
 
-    expect(page).to have_field('Origin', with: "#{trip.origin}")
-    expect(page).to have_field('Destination', with: "#{trip.destination}")
+    expect(page).to have_field('Origin', with: trip.origin.to_s)
+    expect(page).to have_field('Destination', with: trip.destination.to_s)
 
   end
 
