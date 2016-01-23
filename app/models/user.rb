@@ -1,4 +1,4 @@
-                                                                               class User < ActiveRecord::Base
+class User < ActiveRecord::Base
   has_many :trips, class_name: "Trip",
                     foreign_key: "driver_id"
   has_many :rider_reviews, class_name: "Review",

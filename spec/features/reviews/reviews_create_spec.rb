@@ -9,9 +9,11 @@ feature "authenticated user(rider) can review a driver", %{
   let!(:driver) { create(:driver) }
   let!(:rider) { create(:rider) }
   let!(:trip) { create(:trip, driver_id: driver.id) }
-  let!(:review) {
-                create(:review, trip_id: trip.id,
-                rider_id: rider.id, driver_id: driver.id)
+  let!(:review) { create(:review,
+                          trip_id: trip.id,
+                          rider_id: rider.id,
+                          driver_id: driver.id
+                          )
                 }
 
   scenario "rider signs in and reviews a ride " do

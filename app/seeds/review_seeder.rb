@@ -1,12 +1,12 @@
 class ReviewSeeder
   REVIEWS = [
     {
-      rider_id: 1,
-      trip_id: 1,
-      rating: 2,
-      review_body: "Liked it a lot",
-      driver_id: 2
-      }
+    rider_id: 1,
+    trip_id: 1,
+    rating: 2,
+    review_body: "Liked it a lot",
+    driver_id: 2
+    }
   ]
 
   def self.seed!
