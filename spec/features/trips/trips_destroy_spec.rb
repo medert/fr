@@ -7,14 +7,14 @@ feature "authorized user can delete trip information", %{
   } do
 
   let!(:admin){create(:user, role: "admin")}
-  let!(:driver){create(:driver)}
   let!(:rider){create(:rider)}
-  let!(:trip){create(:trip, driver: driver)}
 
     scenario "admin navigates to show's page and deletes any trip" do
 
-      sign_in_as(admin)
+      trip = create(:trip)
+
       visit root_path
+      sign_in_as(admin)
       visit trip_path(trip)
 
       expect(page).to have_content(trip.origin)
@@ -27,6 +27,9 @@ feature "authorized user can delete trip information", %{
     end
 
     scenario "driver navigates to show's page and deletes the trip he created" do
+
+      driver = create(:driver)
+      trip = create(:trip, driver_id: driver.id)
 
       sign_in_as(driver)
       visit trip_path(trip)
@@ -41,7 +44,9 @@ feature "authorized user can delete trip information", %{
     end
 
     scenario "driver is unable to delete the trip he did not created" do
-      trip_2 = create(:trip, driver_id: 10)
+      driver = create(:driver)
+      driver_2 = create(:driver)
+      trip_2 = create(:trip, driver_id: driver_2.id)
 
       sign_in_as(driver)
       visit trip_path(trip_2)
@@ -50,6 +55,8 @@ feature "authorized user can delete trip information", %{
     end
 
     scenario "rider signs in, should be unable to delete trip" do
+
+      trip = create(:trip)
 
       sign_in_as(rider)
       visit trip_path(trip)

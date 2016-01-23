@@ -39,13 +39,13 @@ feature "authenticated users can view trips", %{
     expect(page).to have_content(trip.car_plate)
   end
 
-  scenario "driver signs in and views trips on index page" do
+  scenario "driver signs in and views trips on show page" do
     visit root_path
     sign_in_as(driver)
     visit trip_path(trip)
 
-    expect(page).to have_button("Update Trip")
+    expect(page).to have_button("Edit")
     expect(page).to have_button("Delete")
-    expect(page).to have_content("Review the Driver")
+    expect(page).to_not have_content("Review the Driver")
   end
 end

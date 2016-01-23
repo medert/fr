@@ -11,7 +11,7 @@ AdminSeeder.seed!
 if Rails.env.development? || Rails.env.production?
   AdminSeeder.seed!
   UserSeeder.seed!
-  # DriverSeeder.seed!
+  # ReviewSeeder.seed!
   # RiderSeeder.seed!
   TripSeeder.seed!
 end

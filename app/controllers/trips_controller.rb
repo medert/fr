@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :authorize_user, only: [:destroy]
-  before_action :trip, only: [:index, :show, :edit, :update, :destroy]
+  # before_action :trip, only: [:show, :edit, :update, :destroy]
   # before_action :review, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,7 +8,15 @@ class TripsController < ApplicationController
   end
 
   def show
-    trip
+    @review = Review.new
+    trip_reviews = Review.where(trip_id: trip)
+    @reviews = trip_reviews.order(created_at: :desc).page params[:page]
+    @rating = @trip.reviews.average(:rating)
+    if @rating.nil?
+      @rating = "N/A"
+    else
+      @rating = @rating.round(1)
+    end
   end
 
   def new
@@ -19,7 +27,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.driver_id = current_user.id
     if @trip.save
-      flash[:success] = "Trip successfully created!"
+      flash[:notice] = "Trip successfully created!"
       redirect_to root_path
     else
       flash[:notice] = @trip.errors.full_messages
@@ -28,6 +36,7 @@ class TripsController < ApplicationController
   end
 
   def edit
+    trip
   end
 
   def update

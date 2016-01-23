@@ -1,13 +1,7 @@
-<div class="park-index-list-item">
-  <div class="row" data-equalizer>
-    <li>
-      <div class="park-info small-4 column" data-equalizer-watch>
-        <p>
-          <li>
-            <%= @review.review_body %>
-          </li>
-        </p>
-      </div>
-    </li>
-  </div>
+<div>
+  <p>
+    <% @reviews.each do |review| %>
+      <li><%= review.review_body %></li></br>
+    <% end %>
+  </p>
 </div>

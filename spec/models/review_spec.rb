@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 describe Review do
-  it { belong_to :rider }
-  it { belong_to :trip }
+  it { should belong_to :rider_reviews }
+  it { should belong_to :trip }
+  it { should belong_to :driver_reviews }
 
   it { should have_valid(:rating).when(1) }
   it { should_not have_valid(:rating).when("") }

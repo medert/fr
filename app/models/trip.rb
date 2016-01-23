@@ -1,6 +1,5 @@
 class Trip < ActiveRecord::Base
-  belongs_to :driver,
-    class_name: "User"
+  belongs_to :driver, class_name: "User"
   has_many :reviews
 
   validates :origin, presence: true

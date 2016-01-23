@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120155111) do
+ActiveRecord::Schema.define(version: 20160121203033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rider_id"
-    t.integer "trip_id"
-    t.integer "rating",      default: 0
-    t.text    "review_body"
+    t.integer  "rider_id"
+    t.integer  "trip_id"
+    t.integer  "rating",      default: 0
+    t.text     "review_body"
+    t.integer  "driver_id",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "trips", force: :cascade do |t|

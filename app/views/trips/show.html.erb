@@ -7,6 +7,7 @@
   <h3 class="park-show-location">
     Driver: <%= link_to "#{@trip.driver.first_name} #{@trip.driver.last_name}", user_path(@trip.driver) %>
   </h3>
+  <h3 class="park-show-location">Avaliable seats:<%= @trip.avail_cap %></h3>
   <h3 class="park-show-location">Driver Rating:<%= @trip.driver.rating %></h3>
 
   <% if user_signed_in? %>
@@ -14,26 +15,26 @@
     <h3 class="park-show-location"><%= @trip.car_make %></h3>
     <h3 class="park-show-location"><%= @trip.car_model %></h3>
     <h3 class="park-show-location"><%= @trip.car_plate %></h3>
-
   <% end %>
-  <% if user_signed_in? && ( current_user == @trip.driver || current_user.role == "admin" ) %>
+
+  <% if user_signed_in? && ( current_user.id == @trip.driver_id || current_user.role == "admin" ) %>
     <div class="button tiny update-butt">
-      <%= button_to 'Update Trip', edit_trip_path(@trip) %>
+      <%= button_to 'Edit', edit_trip_path(@trip), method: :get %></br>
       <%= button_to 'Delete', trip_path(@trip), method: "delete"%>
     </div>
   <% end %>
-</div>
-
-<div>
-  <% if user_signed_in? && !@reviews.nil? %>
+  </div>
+  <div>
     <h1>Driver Reviews</h1>
-    <%= render @reviews %>
-  <% end %>
-</div>
+      <% if user_signed_in? && !@reviews.nil? %>
+        <%= render 'reviews/review' %>
+      <% else %>
+        <%= "No reviews have been posted yet!" %>
+      <% end %>
+  </div>
 
-<div>
-  <h2>Review the Driver</h2>
-  <% if user_signed_in? && !current_user == @trip.driver %>
-
-  <% end %>
-</div>
+  <div>
+    <% if user_signed_in? && current_user.id != @trip.driver.id %>
+      <%= render "reviews/form" %>
+    <% end %>
+  </div>

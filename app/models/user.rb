@@ -1,10 +1,11 @@
                                                                                class User < ActiveRecord::Base
   has_many :trips, class_name: "Trip",
                     foreign_key: "driver_id"
-  has_many :reviews, class_name: "Review",
+  has_many :rider_reviews, class_name: "Review",
                     foreign_key: "rider_id"
-  has_many :riders, through: :reviews, class_name: "Trip"
-  has_many :reviews_on_self, through: :trips, class_name: "Review"
+  has_many :driver_reviews, class_name: "Review",
+                    foreign_key: "driver_id"
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

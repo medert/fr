@@ -11,5 +11,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @review = Review.new
+    user_reviews = Review.where(driver_id: @user)
+    @reviews = user_reviews.order(created_at: :desc).page params[:page]
+  end
+
+  def destroy
+    if trip.destroy
+      flash[:notice] = "You have deleted trip successfully!"
+      redirect_to root_path
+    else
+      flash[:notice] = "You failed to delete trip!"
+      render :show
+    end
   end
 end

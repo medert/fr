@@ -2,9 +2,8 @@ require 'rails_helper'
 
 describe User do
   it { should have_many :trips }
-  it { should have_many :reviews }
-  it { should have_many :riders }
-  it { should have_many :reviews_on_self }
+  it { should have_many :rider_reviews }
+  it { should have_many :driver_reviews }
 
   it { should have_valid(:first_name).when("Meder") }
   it { should_not have_valid(:first_name).when("", nil) }
