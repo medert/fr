@@ -8,6 +8,7 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+# Ignore uploaded files in test/development/public/uploads
 /log/*
 !/log/.keep
 /tmp

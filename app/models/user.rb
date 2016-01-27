@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :profile_photo, ProfilePhotoUploader
   has_many :trips, class_name: "Trip",
                     foreign_key: "driver_id"
   has_many :rider_reviews, class_name: "Review",

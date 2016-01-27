@@ -1,13 +1,21 @@
-<%= form_for [@trip, @review] do |f| %>
-  <div>
-    <%= f.label :rating, "Rate the driver" %>
-    <%= f.select :rating, options_for_select(["", 1, 2, 3, 4, 5]) %>
-  </div>
-  <div>
-    <%= f.label :review_body, "Review" %>
-    <%= f.text_field :review_body %>
-  </div>
-  <div>
-    <%= f.submit "Post Review" %>
-  </div>
-<% end %>
+<div class="review-title small-8 small-centered column text-center">
+  <%= form_for [@trip, @review] do |f| %>
+    <div>
+      <ul class="review-form-list">
+        <%= f.label :rating, "Rate the driver" %>
+        <%= f.select :rating, options_for_select(["", 1, 2, 3, 4, 5]) %>
+      </ul>
+    </div>
+    <div>
+      <ul class="review-form-list">
+      <%= f.label :review_body, "Review" %>
+      <%= f.text_field :review_body %>
+      <ul>
+    </div>
+    <div>
+      <ul class="review-form-list">
+        <%= f.submit "Post Review" %>
+      </ul>
+    </div>
+  <% end %>
+</div>
