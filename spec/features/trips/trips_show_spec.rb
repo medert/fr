@@ -20,7 +20,7 @@ feature "authenticated users can view trips", %{
     expect(page).to have_content(trip.driver.first_name)
     expect(page).to have_content(trip.driver.last_name)
     expect(page).to have_content(trip.driver.rating)
-    expect(page).not_to have_content(trip.meet_point)
+    expect(page).to have_content(trip.meet_point)
     expect(page).not_to have_content(trip.car_make)
     expect(page).not_to have_content(trip.car_model)
     expect(page).not_to have_content(trip.car_plate)

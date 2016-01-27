@@ -24,5 +24,4 @@ class User < ActiveRecord::Base
   validates :d_lisence, presence: true
   validates :phone, presence: true
   validates :email, presence: true
-
 end

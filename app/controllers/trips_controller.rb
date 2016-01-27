@@ -1,6 +1,5 @@
 require_relative "api/mbta.rb"
 
-
 class TripsController < ApplicationController
   before_action :authorize_user, only: [:destroy]
   # before_action :trip, only: [:show, :edit, :update, :destroy]
@@ -65,8 +64,6 @@ class TripsController < ApplicationController
 
   private
 
-
-
   def trip
     @trip ||= Trip.find(params[:id])
   end
@@ -83,10 +80,5 @@ class TripsController < ApplicationController
       :car_plate,
       :avail_cap
     )
-  end
-
-
-  def get_mbta
-
   end
 end

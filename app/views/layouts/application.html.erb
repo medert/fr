@@ -28,6 +28,10 @@
     <ul class="right">
       <li class="active">
         <% if user_signed_in? %>
+          <% unless current_user.profile_photo.nil? %>
+            <%= image_tag "#{current_user.profile_photo}", size: "30x30" %>
+          <% end %>
+
         <li class="has-dropdown">
           <a href="#"><%= current_user.first_name %></a>
           <ul class="dropdown">
