@@ -12,10 +12,6 @@ h1, h2, h3, h4, h5 {
   margin-top: 0.5rem;
 }
 
-body {
-
-}
-
 .top-bar-section {
     display: inline;
     height: auto !important;
@@ -55,8 +51,8 @@ body {
 
 .mbta {
   color: $sc-white;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   line-height: auto;
   font-size: 14px;
   background-color: $focus-red;
@@ -169,7 +165,7 @@ a:hover, a:focus {
 }
 
 .park-show-location {
-  margin-top: 0rem;
+  margin-top: 0;
 }
 
 .park-show-rating {
@@ -226,7 +222,7 @@ a:hover, a:focus {
 }
 
 .leaf {
-  background: url('http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg') no-repeat center center;
+  background: url("static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg") no-repeat center center;
 	background-size: cover;
   height: 50vh;
   overflow: hidden;
@@ -237,7 +233,7 @@ a:hover, a:focus {
 }
 
 .footer {
-  background-color:  $secondary-color;
+  background-color: $secondary-color;
   font-family: $font-stack;
   font-size: 1.2rem;
   padding: 2rem;
