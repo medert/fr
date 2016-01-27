@@ -1,3 +1,6 @@
+require_relative "api/mbta.rb"
+
+
 class TripsController < ApplicationController
   before_action :authorize_user, only: [:destroy]
   # before_action :trip, only: [:show, :edit, :update, :destroy]
@@ -5,6 +8,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
+    @mbta = Mbta.new("Red Line")
   end
 
   def show
@@ -30,7 +34,7 @@ class TripsController < ApplicationController
       flash[:notice] = "Trip successfully created!"
       redirect_to root_path
     else
-      flash[:notice] = @trip.errors.full_messages
+      flash[:alert] = @trip.errors.full_messages
       render 'new'
     end
   end
@@ -61,6 +65,8 @@ class TripsController < ApplicationController
 
   private
 
+
+
   def trip
     @trip ||= Trip.find(params[:id])
   end
@@ -77,5 +83,10 @@ class TripsController < ApplicationController
       :car_plate,
       :avail_cap
     )
+  end
+
+
+  def get_mbta
+
   end
 end

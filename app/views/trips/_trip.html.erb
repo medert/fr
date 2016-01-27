@@ -1,15 +1,9 @@
 <div class="park-index-list-item">
   <div class="row" data-equalizer>
-    <li>
-      <div class="park-info small-4 column" data-equalizer-watch>
-        <p>
-          <%= link_to "#{trip.origin}-#{trip.destination}", trip_path(trip) %><br>
-          <%= link_to "Driver: #{trip.driver.first_name}", user_path(trip.driver) %><br>
-          <li>
-            Trip rate: $<%= trip.rate %>
-          </li>
-        </p>
+      <div class="park-info small-6 column" data-equalizer-watch>
+          <%= link_to "#{trip.origin}-#{trip.destination}", trip_path(trip) %></br>
+          <%= link_to "Driver: #{trip.driver.first_name}", user_path(trip.driver) %></br>
+          <%= "Trip rate $#{trip.rate}" %>
       </div>
-    </li>
   </div>
 </div>

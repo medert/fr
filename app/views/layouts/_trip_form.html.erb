@@ -31,7 +31,9 @@
     <%=f.label :avail_cap, "Avaliable Seats"%>
     <%= f.select :avail_cap, options_for_select([1, 2, 3, 4]) %>
   </div>
-  <div>
-    <%= f.submit%>
+  <div class="row text-center">
+    <div class="small-centered small-2 columns button small">
+      <%= f.submit class: "new"%>
+    </div>
   </div>
   <% end %>
