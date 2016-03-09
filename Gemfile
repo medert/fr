@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.2.0"
+ruby "2.2.1"
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
@@ -25,7 +25,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', '~> 3.0.1'
-  gem "dotenv-rails"
   gem "mailcatcher"
   gem 'teaspoon-jasmine'
   gem 'quiet_assets'
