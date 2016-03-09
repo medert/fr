@@ -15,7 +15,6 @@ gem 'kaminari'
 gem "carrierwave"
 gem "fog"
 gem 'dotenv-rails'
-gem 'puma'
 
 group :development, :test do
   gem 'byebug'
@@ -42,4 +41,7 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'rails_12factor',  group: :production
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
+end
