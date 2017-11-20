@@ -1,4 +1,4 @@
-require_relative "api/mbta.rb"
+# require_relative "api/mbta.rb"
 
 class TripsController < ApplicationController
   before_action :authorize_user, only: [:destroy]
@@ -7,7 +7,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
-    @mbta = Mbta.new("Red Line")
+    # @mbta = Mbta.new("Red Line")
   end
 
   def show
